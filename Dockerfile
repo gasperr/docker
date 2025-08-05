@@ -61,7 +61,7 @@ RUN \
     LATEST_VERSION=$(curl -sX GET https://api.github.com/repos/InvoiceShelf/InvoiceShelf/releases/latest | awk '/tag_name/{print $4;exit}' FS='[""]') && \
     if [ "$TARGET" = "release" ] ; then RELEASE_TAG="-b $LATEST_VERSION" ; \
     elif [ "$BRANCH" != "master" ] ; then RELEASE_TAG="-b $BRANCH" ; fi && \
-    git clone --depth 1 $RELEASE_TAG https://github.com/InvoiceShelf/InvoiceShelf.git && \
+    git clone --depth 1 $RELEASE_TAG https://github.com/gasperr/InvoiceShelf.git && \
     mv InvoiceShelf/.git/refs/heads/$BRANCH InvoiceShelf/$BRANCH || cp InvoiceShelf/.git/HEAD InvoiceShelf/$BRANCH && \
     mv InvoiceShelf/.git/HEAD InvoiceShelf/HEAD && \
     rm -r InvoiceShelf/.git/* && \
